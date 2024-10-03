@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <!-- tailwind + daisyui cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- navbar starts -->
+    <div class="w-11/12 mx-auto navbar bg-base-100 items-center border-b">
+        <div class="navbar-start w-[100]">
+            <img src="./Logo.png" alt=""> 
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <a class="btn">Sort by choice</a>
+        </div>
+        <div class="navbar-end ">
+          <a class="btn bg-red-200">Button</a>
+        </div>
+      </div>
+      <nav id="categories" class="py-3 flex justify-center gap-5">
+
+      </nav>
+      <!-- navbar ends -->
+       <script src="./video.js"></script>
+</body>
+</html>
