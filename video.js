@@ -53,18 +53,23 @@ const displayVideos = (videos) =>{
  card.classList = 'card card-compact';
  card.innerHTML=
                 `
-                  <figure><img src=${video.thumbnail}
-/>
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
+                  <figure class="h-[200px]"><img src=${video.thumbnail} class="w-full h-full object-cover"/></figure>
+                    <div class="px-0 py-3 flex gap-2">
+                       <div> <img class=" h-10 w-10 rounded-full object-cover" src="${video.authors[0].profile_picture}" />
+                       </div>
+                       <div> 
+                          <h2 class="font-bold">${video.title}</h2>
+                          <div class="flex items-center gap-2">
+                              <p class="text-gray-400">${video.authors[0].profile_name}</p>
+                              <img class="w-5" src="https://cdn.iconscout.com/icon/premium/png-512-thumb/verify-8190120-6564475.png?f=webp&w=256"/>
+                          </div>
+                              <p class="text-gray-400">${}</p>
+
+                        </div>
+                    </div>
+
                 `;
-                videoContainer.append(card);
+videoContainer.append(card);
 });
 };
 
