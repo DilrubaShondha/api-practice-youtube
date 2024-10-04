@@ -1,3 +1,12 @@
+
+function getTimeString(time) {
+    //get Hour and rest seconds
+    const hour = parseInt(time / 3600);
+    let remainingSecond = time % 3600;
+    const minute = parseInt(remainingSecond / 60);
+    remainingSecond = remainingSecond % 60;
+    return `${hour} hour  ${minute} minute ${remainingSecond} second ago`;
+  }
 //fetch load and show data
 //create load categories
 const loadCategories = () => {
@@ -26,24 +35,28 @@ const displayCatergories = (categories) =>{
 });
 };
 //create display videos
-const cardDemo = {
-        "category_id": "1003",
-        "video_id": "aaaf",
-        "thumbnail": "https://i.ibb.co/5LRQkKF/stick-and-stones.jpg",
-        "title": "Sticks & Stones",
-        "authors": [
-            {
-                "profile_picture": "https://i.ibb.co/rdTZrCM/dev.jpg",
-                "profile_name": "Dave Chappelle",
-                "verified": true
-            }
-        ],
-        "others": {
-            "views": "113K",
-            "posted_date": ""
-        },
-        "description": "Dave Chappelle's 'Sticks & Stones' has garnered 113K views and remains a controversial yet highly engaging piece of stand-up comedy. Known for his fearless approach, Dave dives into a wide range of topics, delivering his unique perspective with wit and sharp humor. As a verified artist, Dave's comedy is raw, honest, and unapologetically funny."
-}
+// const cardDemo = {
+//         "category_id": "1003",
+//         "video_id": "aaaf",
+//         "thumbnail": "https://i.ibb.co/5LRQkKF/stick-and-stones.jpg",
+//         "title": "Sticks & Stones",
+//         "authors": [
+//             {
+//                 "profile_picture": "https://i.ibb.co/rdTZrCM/dev.jpg",
+//                 "profile_name": "Dave Chappelle",
+//                 "verified": true
+//             }
+//         ],
+//         "others": {
+//             "views": "113K",
+//             "posted_date": ""
+//         },
+//         "description": "Dave Chappelle's 'Sticks & Stones' 
+//         has garnered 113K views and remains a controversial yet highly
+//          engaging piece of stand-up comedy. Known for his fearless approach, 
+//          Dave dives into a wide range of topics, delivering his unique perspective
+//           with wit and sharp humor. As a verified artist, Dave's comedy is raw, honest, and unapologetically funny."
+// }
 const displayVideos = (videos) =>{
     const videoContainer =document.getElementById('videos');
     videos.forEach((video) => {
@@ -54,7 +67,9 @@ const displayVideos = (videos) =>{
                 `
                   <figure class="h-[200px] relative">
                     <img src=${video.thumbnail} class="w-full h-full object-cover"/>
-                    <span class="absolute right-2 bottom-2 p-1 bg-black text-white rounded">${video.others.posted_date}</span>
+                    ${video.others.posted_date?.length == 0 ? " " :
+                    `<span class="absolute right-2 bottom-2 p-1 bg-black text-xs text-white rounded">${getTimeString(video.others.posted_date)}</span>`}
+                    
                   </figure>
                     <div class="px-0 py-3 flex gap-2">
                        <div> <img class=" h-10 w-10 rounded-full object-cover" src="${video.authors[0].profile_picture}" />
